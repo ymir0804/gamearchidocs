@@ -1,3 +1,14 @@
+replicaCount: 2
+clusterDomain: cluster.local
+
+extraEnv: |
+  - name: JGROUPS_DISCOVERY_PROTOCOL
+    value: dns.DNS_PING
+  - name: JGROUPS_DISCOVERY_PROPERTIES
+    value: dns_query={{ include "keycloak.serviceDnsName" . }}
+  - name: CACHE_OWNERS_COUNT
+    value: "1
+
 auth:
   adminUser: "admin"
   adminPassword: "admin"
@@ -10,14 +21,16 @@ ingress:
   tls: true
   secretName: "keycloak-tls"
 
-postgresql:
+volumePermissions:
   enabled: true
-  primary:
-    persistence:
-      enabled: true
-      storageClass: "longhorn"
-      size: 8Gi
-    resources:
-      requests:
-        memory: "256Mi"
-        cpu: "250m"
+persistence:
+  storageClass: "longhorn"
+  size: 10Gi
+
+resources:
+  requests:
+    memory: "1024Mi"
+    cpu: "500m"
+  limits:
+    memory: "2048Mi" 
+    cpu: "1000m"
