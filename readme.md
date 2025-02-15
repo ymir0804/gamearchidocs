@@ -15,4 +15,10 @@ helm install ingress-nginx ingress-nginx/ingress-nginx   --namespace ingress-ngi
 ```
 
 
-##
+## KeyCloak
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+kubectl create namespace keycloak
+kubectl create secret tls keycloak-tls-cert --cert /home/kubeadm/wildcard-fullchain.pem --key /home/kubeadm/wildcard-key.pem -n keycloak
+```

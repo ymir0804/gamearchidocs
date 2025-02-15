@@ -1,0 +1,23 @@
+auth:
+  adminUser: "admin"
+  adminPassword: "admin"
+
+ingress:
+  enabled: true
+  hostname: "keycloak.coindefense.duckdns.org"
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "256k"
+  tls: true
+  secretName: "keycloak-tls"
+
+postgresql:
+  enabled: true
+  primary:
+    persistence:
+      enabled: true
+      storageClass: "longhorn"
+      size: 8Gi
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "250m"
