@@ -1,9 +1,9 @@
 ingress:
   enabled: true
   host: longhorn.coindefense.duckdns.org
+  tlsSecret: longhorn-tls-cert
   tls:
-    - secretName: longhorn-tls-cert
-      hosts:
+    - hosts:
         - longhorn.coindefense.duckdns.org
 
 defaultSettings:
