@@ -1,10 +1,10 @@
 ingress:
   enabled: true
-  host: longhorn.coindefence.duckdns.org
+  host: longhorn.coindefense.duckdns.org
   tls:
     - secretName: longhorn-tls-cert
       hosts:
-        - longhorn.coindefence.duckdns.org
+        - longhorn.coindefense.duckdns.org
 
 defaultSettings:
   createDefaultDiskLabeledNodes: true
