@@ -1,0 +1,24 @@
+auth:
+  username: myuser         # Keycloak에서 사용할 사용자명
+  password: mypass     # Keycloak에서 사용할 비밀번호
+  database: mydb           # Keycloak에서 사용할 데이터베이스 이름
+  postgresPassword: adminpassword # PostgreSQL 관리자 비밀번호
+
+primary:
+  persistence:
+    enabled: true                # 영구 스토리지 활성화
+    storageClass: "longhorn"     # 사용할 스토리지 클래스 (예: Longhorn)
+    size: 200Gi                    # 스토리지 크기
+
+  resources:                     # 리소스 요청 및 제한 설정
+    requests:
+      cpu: "2"                   # vCPU 요청 (2 Core)
+      memory: "6Gi"              # 메모리 요청 (6GB)
+    limits:
+      cpu: "2"                   # vCPU 제한 (2 Core)
+      memory: "6Gi"              # 메모리 제한 (6GB)
+
+architecture: standalone         # 단일 노드 PostgreSQL 구성
+initdbScripts:                   # 초기화 스크립트로 타임존 설정
+  set-timezone.sql: |
+    ALTER DATABASE keycloakdb SET timezone = 'Asia/Seoul';
