@@ -5,3 +5,14 @@
 
 ## longhorn
 - 현재 longhorn만 설치 예정
+
+## nginx-ingress
+
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx   --namespace ingress-nginx   --create-namespace   --set controller.ingressClassResource.name=nginx   --set controller.ingressClassResource.default=true
+```
+
+
+##
