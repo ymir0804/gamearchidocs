@@ -1,7 +1,0 @@
-token:
-  value: "DUCKDNS_TOKEN값"
-
-clusterIssuer:
-  production:
-    create: true
-  email: "내 이메일 주소"

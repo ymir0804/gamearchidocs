@@ -1,0 +1,11 @@
+ingress:
+  enabled: true
+  host: longhorn.coindefence.duckdns.org
+  tls:
+    - secretName: longhorn-tls-cert
+      hosts:
+        - longhorn.coindefence.duckdns.org
+
+defaultSettings:
+  createDefaultDiskLabeledNodes: true
+  defaultDataPath: "/data/longhorn"
