@@ -8,4 +8,4 @@ ingress:
 
 defaultSettings:
   createDefaultDiskLabeledNodes: true
-  defaultDataPath: "/mnt/longhorn"
+  defaultDataPath: "/mnt/worker02"
