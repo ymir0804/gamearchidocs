@@ -1,3 +1,5 @@
+longhornui:
+  replicas: 1
 ingress:
   enabled: true
   host: longhorn.coindefense.duckdns.org
@@ -5,7 +7,3 @@ ingress:
   tls:
     - hosts:
         - longhorn.coindefense.duckdns.org
-
-defaultSettings:
-  createDefaultDiskLabeledNodes: true
-  defaultDataPath: "/mnt/master" # worker02노드에 배포 되는 경우 csi-driver가 정상적으로 삭제되지 않아 master로 변경

@@ -28,8 +28,10 @@ kubectl create secret tls keycloak-tls-cert --cert /home/kubeadm/wildcard-fullch
 ```
 
 
-## k8s 꿀팁
+## k8s cheet sheet
 ```
-
+kubectl get namespace "longhorn-system" -o json \
+  | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" \
+  | kubectl replace --raw /api/v1/namespaces/"longhorn-system"/finalize -f -
 
 
