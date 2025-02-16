@@ -6,8 +6,9 @@
 ## longhorn
 ```
 kubectl create ns longhorn-system
-helm install longhorn longhorn/longhorn   --namespace longhorn-system   --create-namespace   --values values.yaml
 kubectl create secret tls longhorn-tls-cert --cert /home/kubeadm/wildcard-fullchain.pem --key /home/kubeadm/wildcard-key.pem -n longhorn-system
+helm install longhorn longhorn/longhorn   --namespace longhorn-system   --create-namespace   --values values.yaml
+
 ```
 ## nginx-ingress
 
